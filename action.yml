@@ -1,0 +1,12 @@
+name: "Compile Puzzles"
+description: "Compile every target directory into proper .alghive files and test them"
+author: "AlgoHive"
+inputs:
+  target-directories:
+    description: "Directories to compile (comma-separated)"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.target-directories }}
