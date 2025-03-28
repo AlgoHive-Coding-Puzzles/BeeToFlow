@@ -5,8 +5,18 @@ inputs:
   target-directories:
     description: "Directories to compile (comma-separated)"
     required: true
+  output-directory:
+    description: "The directory where the compiled .alghive files will be saved"
+    required: false
+    default: "out"
+  hivecraft-version:
+    description: "The version of Hivecraft to use"
+    required: false
+    default: "latest"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
     - ${{ inputs.target-directories }}
+    - ${{ inputs.output-directory }}
+    - ${{ inputs.hivecraft-version }}
