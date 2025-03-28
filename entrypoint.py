@@ -68,11 +68,13 @@ def create_tar_archive(output_dir, directory):
     """Create a tar archive of the compiled puzzles"""
     from hivecraft.alghive import Alghive
     tar_filename = os.path.join(output_dir, f"{os.path.basename(directory)}.tar")
+    dir_output = os.path.join(output_dir, directory)
+    
     print(f"📦 Creating tar archive: {tar_filename}")
     
     with tarfile.open(tar_filename, "w") as tar:
-        for file in os.listdir(output_dir):
-            file_path = os.path.join(output_dir, file)
+        for file in os.listdir(dir_output):
+            file_path = os.path.join(dir_output, file)
             if file.endswith(Alghive.EXTENSION) and os.path.isfile(file_path):
                 tar.add(file_path, arcname=os.path.basename(file_path))
     
