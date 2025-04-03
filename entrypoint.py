@@ -11,10 +11,17 @@ def install_hivecraft(version):
     """Install Hivecraft from GitHub"""
     print(f"🐝 Installing Hivecraft version: {version}")
     
-    if version.lower() == "latest":
-        cmd = ["pip", "install", "git+https://github.com/AlgoHive-Coding-Puzzles/HiveCraft.git"]
-    else:
-        cmd = ["pip", "install", f"git+https://github.com/AlgoHive-Coding-Puzzles/HiveCraft.git@{version}"]
+    # if version.lower() == "latest":
+    #     cmd = ["pip", "install", "git+https://github.com/AlgoHive-Coding-Puzzles/HiveCraft.git"]
+    # else:
+    #     cmd = ["pip", "install", f"git+https://github.com/AlgoHive-Coding-Puzzles/HiveCraft.git@{version}"]
+    
+    hivecraft_p = "hivecraft"
+    if version:
+        hivecraft_p += f"=={version}"
+    
+    # Install the latest version of Hivecraft from PyPI
+    cmd = ["pip", "install", hivecraft_p]
     
     subprocess.run(cmd, check=True)
     print("✅ Hivecraft installed successfully")
