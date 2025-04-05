@@ -17,7 +17,7 @@ def install_hivecraft(version):
     #     cmd = ["pip", "install", f"git+https://github.com/AlgoHive-Coding-Puzzles/HiveCraft.git@{version}"]
     
     hivecraft_p = "hivecraft"
-    if version:
+    if version and version.lower() != "latest":
         hivecraft_p += f"=={version}"
     
     # Install the latest version of Hivecraft from PyPI
