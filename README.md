@@ -11,7 +11,7 @@ Add the following to your GitHub actions workflow:
 
 ```yaml
 - name: Use Compile Puzzles Action
-  uses: AlgoHive-Coding-Puzzles/BeeToFlow@v0.0.1
+  uses: AlgoHive-Coding-Puzzles/BeeToFlow@v1.0.0
   with:
     target-directories: "B1, B2"
 ```
@@ -26,10 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Compile Puzzles Action
-        uses: AlgoHive-Coding-Puzzles/BeeToFlow@v0.0.1
+        uses: AlgoHive-Coding-Puzzles/BeeToFlow@v1.0.0
         with:
           target-directories: "Catalog1, Catalog2"
 

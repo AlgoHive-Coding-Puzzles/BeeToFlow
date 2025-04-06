@@ -1,6 +1,9 @@
 name: "Compile Puzzles"
 description: "Compile every target directory into proper .alghive files and test them"
 author: "AlgoHive"
+branding:
+  icon: "hexagon"
+  color: "orange"
 inputs:
   target-directories:
     description: "Directories to compile (comma-separated)"
