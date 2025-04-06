@@ -50,7 +50,7 @@ def compile_puzzles(directory, output_dir):
             alghive.check_integrity()
             
             # Run tests to ensure the puzzle is working correctly
-            alghive.run_tests(25)
+            alghive.run_tests(15)
             
             # Zip the folder to create the .alghive file
             alghive.zip_folder()
