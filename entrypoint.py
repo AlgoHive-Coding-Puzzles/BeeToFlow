@@ -6,6 +6,7 @@ import tarfile
 import shutil
 import importlib.util
 import site
+import traceback  # Add traceback module for stack traces
 
 def install_hivecraft(version):
     """Install Hivecraft from GitHub"""
@@ -49,7 +50,7 @@ def compile_puzzles(directory, output_dir):
             alghive.check_integrity()
             
             # Run tests to ensure the puzzle is working correctly
-            alghive.run_tests(5)
+            alghive.run_tests(100)
             
             # Zip the folder to create the .alghive file
             alghive.zip_folder()
@@ -66,8 +67,10 @@ def compile_puzzles(directory, output_dir):
                 print(f"  ❌ Failed to create alghive file for {puzzle}")
                 
         except Exception as e:
-            failed.append(f"{puzzle}: {str(e)}")
+            stack_trace = traceback.format_exc()
+            failed.append(f"{puzzle}: {str(e)}\n{stack_trace}")
             print(f"  ❌ Failed to compile {puzzle}: {str(e)}")
+            print(f"    Stack trace:\n{stack_trace}")
     
     return successful, failed
 
