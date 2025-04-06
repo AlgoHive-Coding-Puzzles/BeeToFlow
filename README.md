@@ -60,6 +60,11 @@ jobs:
 - The action will create a tar file for each directory containing the compiled `.alghive` files.
 - If the action fails, it will return an error message indicating the reason for the failure.
 
+## Future Improvements
+
+- Add support for only testing and not compiling the puzzles.
+- - It will allow users to test their commited puzzles in "draft" period and only compile them when they are ready.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
