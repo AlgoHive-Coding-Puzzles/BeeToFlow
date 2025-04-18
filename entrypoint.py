@@ -4,9 +4,8 @@ import sys
 import subprocess
 import tarfile
 import shutil
-import importlib.util
-import site
-import traceback  # Add traceback module for stack traces
+import traceback
+import time
 
 def install_hivecraft(version):
     """Install Hivecraft from GitHub"""
@@ -50,8 +49,16 @@ def compile_puzzles(directory, output_dir):
             alghive.check_integrity()
             
             # Run tests to ensure the puzzle is working correctly
-            alghive.run_tests(15)
+            test_count = 50
+            start_time = time.time() # Record start time
+            alghive.run_tests(test_count)
+            end_time = time.time() # Record end time
+            duration = end_time - start_time # Calculate duration
             
+            # Check if tests took too long
+            if duration > 1.5 * test_count:
+                print(f"  ⚠️ Warning: Tests for puzzle '{puzzle}' took {duration:.2f} seconds (limit is 1.5s per puzzle)")
+                
             # Zip the folder to create the .alghive file
             alghive.zip_folder()
             
